@@ -1,0 +1,48 @@
+﻿<ngx-loading [show]="loadingFlag" [config]="{
+        backdropBackgroundColour: 'white',
+        backdropBorderRadius: '14px' }"></ngx-loading>
+<div *ngIf="securitizationDataSets">
+
+    <h2>Securitization Inventory</h2>
+    <hr />
+    <div class="Inventory">
+        <ul style="width: 1000px; height: 400px; overflow: auto; font-size: 85%; list-style-type: none;">
+            <li *ngFor="let securitizationDataSet of securitizationDataSets"
+                [class.selected]="securitizationDataSet === selectedSecuritizationDataSet"
+                (click)="onSelect(securitizationDataSet)">
+                <span class="TemplateStatus">{{securitizationDataSet.IsTemplate ? ' [Template]:' : ''}}</span>
+                <span class="DataSetId">{{securitizationDataSet.IsTemplate ? '' : 'ID: ' + securitizationDataSet.SecuritizationDataSetId + ' - '}}</span>
+                <span class="Owner">Owner: {{securitizationDataSet.SecuritizationOwner}}</span> ,
+                <span class="CreatedDate">Created: {{securitizationDataSet.CreatedDate | date:"MM/dd/yy"}}</span> ,
+                <span class="Description">{{securitizationDataSet.SecuritizationDataSetDescription}}</span>
+            </li>
+        </ul>
+        <div *ngIf="selectedSecuritizationDataSet">
+
+            <hr />
+            <h3>Securitization Versions</h3>
+            <div class="ReadOnlyStatus">{{selectedSecuritizationDataSet.IsReadOnly ? '[Read-Only]' : ''}}</div>
+            <div class="TemplateStatus">{{selectedSecuritizationDataSet.IsTemplate ? ' [Template]:' : ''}}</div>
+            <div class="DataSetId">{{selectedSecuritizationDataSet.IsTemplate ? '' : 'ID: ' + selectedSecuritizationDataSet.SecuritizationDataSetId + ' - '}}</div>
+            <div class="Owner">Owner: {{selectedSecuritizationDataSet.SecuritizationOwner}}</div> ,
+            <div class="CreatedDate">Created: {{selectedSecuritizationDataSet.CreatedDate | date:"MM/dd/yy"}}</div>
+            <br />
+            <div class="Description">&nbsp;&nbsp;{{selectedSecuritizationDataSet.SecuritizationDataSetDescription}}</div>
+
+            <ul class="Versions" style="font-size: 85%; list-style-type: none;">
+                <li *ngFor="let securitizationVersion of selectedSecuritizationDataSet.SecuritizationVersions"
+                    (click)="loadSecuritization(securitizationVersion)">
+                    <div tooltip="{{securitizationVersion.SecuritizationVersionComment}}">
+                        <span class="Version">Version ID: {{securitizationVersion.SecuritizationVersionId}} - </span>
+                        <span class="Owner">Owner: {{securitizationVersion.SecuritizationVersionOwner}}</span> ,
+                        <span class="Comments">
+                            <b>Comments:</b> {{securitizationVersion.SecuritizationVersionComment ? securitizationVersion.TruncatedSecuritizationVersionComment : '(none)'}}
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,5 @@
+IF NOT EXISTS (SELECT * FROM FinanceManagement.LedgerAccountTypeDim WHERE LedgerAccountType = 'Metric') INSERT INTO FinanceManagement.LedgerAccountTypeDim VALUES ('Metric', GETDATE())
+IF NOT EXISTS (SELECT * FROM FinanceManagement.LedgerAccountTypeDim WHERE LedgerAccountType = 'Revenue') INSERT INTO FinanceManagement.LedgerAccountTypeDim VALUES ('Revenue', GETDATE())
+IF NOT EXISTS (SELECT * FROM FinanceManagement.LedgerAccountTypeDim WHERE LedgerAccountType = 'Non-Operating Expense') INSERT INTO FinanceManagement.LedgerAccountTypeDim VALUES ('Non-Operating Expense', GETDATE())
+IF NOT EXISTS (SELECT * FROM FinanceManagement.LedgerAccountTypeDim WHERE LedgerAccountType = 'Depreciation and Amortization') INSERT INTO FinanceManagement.LedgerAccountTypeDim VALUES ('Depreciation and Amortization', GETDATE())
+IF NOT EXISTS (SELECT * FROM FinanceManagement.LedgerAccountTypeDim WHERE LedgerAccountType = 'Non-Controlling Interest') INSERT INTO FinanceManagement.LedgerAccountTypeDim VALUES ('Non-Controlling Interest', GETDATE())

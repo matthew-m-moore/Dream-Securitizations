@@ -1,0 +1,20 @@
+﻿<md-sidenav-container style="height: 500px;">
+    <md-sidenav #start mode="side" opened="true">
+        <md-nav-list>
+            <a md-list-item [routerLink]="['/securitization-inventory']" routerLinkActive="active"><b>Inventory</b></a>
+            <hr>
+            <a md-list-item [routerLink]="['/securitization-model', dataSetId, versionId, {outlets: {'securitization-detail': ['securitization-summary']}}]" routerLinkActive="active">Summary</a>
+        </md-nav-list>
+        <hr>
+        <button md-button (click)="start.close()">Hide Menu</button><br />
+        <button md-button>Save</button><br />
+        <button md-button>Save As</button><br />
+        <button md-button>Run</button>
+    </md-sidenav>
+    <md-toolbar color="primary">
+        <button type="button" md-button (click)="start.open()">{{securitizationDescription}}</button>
+    </md-toolbar>
+    <div class="securitization-model-content">
+        <router-outlet name="securitization-detail"></router-outlet>
+    </div>
+</md-sidenav-container>

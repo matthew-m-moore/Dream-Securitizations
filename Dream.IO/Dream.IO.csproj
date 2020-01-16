@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C882125-C15C-4E20-B941-AD8D675D6530}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dream.IO</RootNamespace>
+    <AssemblyName>Dream.IO</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.88.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.88.0\lib\net452\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastMember.Signed, Version=1.0.0.9, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.Signed.1.1.0\lib\net40\FastMember.Signed.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database\Contexts\FinanceManagementContext.cs" />
+    <Compile Include="Database\DatabaseConnectionCache.cs" />
+    <Compile Include="Database\Contexts\SecuritizationEngineContext.cs" />
+    <Compile Include="Database\DatabaseConnection.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>DatabaseConnection.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Database\DatabaseConnectionSettings.cs" />
+    <Compile Include="Database\DatabaseContextRetrieiver.cs" />
+    <Compile Include="Database\DatabaseContextSettings.cs" />
+    <Compile Include="Database\Entities\AllowedMonthEntity.cs" />
+    <Compile Include="Database\Entities\ApplicationUserEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\AggregationGroupAssignmentEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\AggregationGroupDataSetEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\CollateralizedSecuritizationDataSetEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\CollateralizedSecuritizationTrancheEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PaceAssessmentRatePlanEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PaceAssessmentRatePlanTermSetEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PaceAssessmentRecordDataSetEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PaceAssessmentRecordEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PerformanceAssumptionAssignmentEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PerformanceAssumptionDataSetEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PerformanceAssumptionTypeEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PrepaymentPenaltyPlanDetailEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PrepaymentPenaltyPlanEntity.cs" />
+    <Compile Include="Database\Entities\Collateral\PropertyStateEntity.cs" />
+    <Compile Include="Database\Entities\CompoundingConventionEntity.cs" />
+    <Compile Include="Database\Entities\DayCountConventionEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\CalendarDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\CompanyDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\CostCenterAggregationGroupEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\CostCenterAggregationGroupMappingEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\CostCenterDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\EmployeeDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\EmployeeFactEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\JournalLineFactEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\LedgerAccountAggregationGroupEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\LedgerAccountAggregationGroupMappingEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\LedgerAccountDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\LedgerAccountTypeDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\LoanFactEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\LoanLevelDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\LoanProductDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\ProductLineAggregationGroupEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\ProductLineAggregationGroupMappingEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\ProductLineDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\RecordTypeDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\RegionAggregationGroupEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\RegionAggregationGroupMappingEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\RegionDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\RevenueCategoryDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\SourceSystemDimEntity.cs" />
+    <Compile Include="Database\Entities\FinanceManagement\SpendCategoryDimEntity.cs" />
+    <Compile Include="Database\Entities\InterestRates\MarketDataEntity.cs" />
+    <Compile Include="Database\Entities\InterestRates\MarketDataSetEntity.cs" />
+    <Compile Include="Database\Entities\InterestRates\MarketDataTypeEntity.cs" />
+    <Compile Include="Database\Entities\InterestRates\MarketRateEnvironmentEntity.cs" />
+    <Compile Include="Database\Entities\InterestRates\RateCurveDataEntity.cs" />
+    <Compile Include="Database\Entities\InterestRates\RateCurveDataSetEntity.cs" />
+    <Compile Include="Database\Entities\InterestRates\RateIndexEntity.cs" />
+    <Compile Include="Database\Entities\InterestRates\RateIndexGroupEntity.cs" />
+    <Compile Include="Database\Entities\PaymentConventionEntity.cs" />
+    <Compile Include="Database\Entities\Pricing\PricingGroupAssignmentEntity.cs" />
+    <Compile Include="Database\Entities\Pricing\PricingGroupDataSetEntity.cs" />
+    <Compile Include="Database\Entities\Pricing\PricingTypeEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\AvailableFundsRetrievalDetailEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\AvailableFundsRetrievalTypeEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\BalanceCapAndFloorDetailEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\BalanceCapAndFloorSetEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\FeeDetailEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\FeeGroupDetailEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\FundsDistributionTypeEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\PriorityOfPaymentsAssignmentEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\PriorityOfPaymentsSetEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\RedemptionLogicAllowedMonthsDetailEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\RedemptionLogicAllowedMonthsSetEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\RedemptionLogicDataSetEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\RedemptionLogicTypeEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\RedemptionTranchesDetailEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\RedemptionTranchesSetEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\ReserveAccountsDetailEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\ReserveAccountsSetEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationAnalysisCommentEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationAnalysisDataSetEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationAnalysisEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationAnalysisInputEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationAnalysisOwnerEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationAnalysisResultEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationAnalysisSummaryEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationInputTypeEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationNodeDataSetEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationNodeEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\SecuritizationResultTypeEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\TrancheCashFlowTypeEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\TrancheCouponEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\TrancheDetailEntity.cs" />
+    <Compile Include="Database\Entities\Securitization\TrancheTypeEntity.cs" />
+    <Compile Include="Database\Entities\VectorEntity.cs" />
+    <Compile Include="Database\Entities\VectorParentEntity.cs" />
+    <Compile Include="Database\Interfaces\IDatabaseContextRetriever.cs" />
+    <Compile Include="Database\Mappings\AllowedMonthMapping.cs" />
+    <Compile Include="Database\Mappings\ApplicationUserMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\AggregationGroupAssignmentMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\AggregationGroupDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\CollateralizedSecuritizationDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\CollateralizedSecuritizationTrancheMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PaceAssessmentRatePlanMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PaceAssessmentRatePlanTermSetMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PaceAssessmentRecordDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PaceAssessmentRecordMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PerformanceAssumptionAssignmentMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PerformanceAssumptionDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PerformanceAssumptionTypeMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PrepaymentPenaltyPlanDetailMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PrepaymentPenaltyPlanMapping.cs" />
+    <Compile Include="Database\Mappings\Collateral\PropertyStateMapping.cs" />
+    <Compile Include="Database\Mappings\CompoundingConventionMapping.cs" />
+    <Compile Include="Database\Mappings\DayCountConventionMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\CalendarDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\CompanyDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\CostCenterAggregationGroupMappingMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\CostCenterAggregationGroupMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\CostCenterDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\EmployeeDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\EmployeeFactMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\JournalLineFactMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\LedgerAccountAggregationGroupMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\LedgerAccountAggregationGroupMappingMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\LedgerAccountDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\LedgerAccountTypeDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\LoanFactMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\LoanLevelDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\LoanProductDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\ProductLineAggregationGroupMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\ProductLineAggregationGroupMappingMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\ProductLineDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\RecordTypeDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\RegionAggregationGroupMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\RegionAggregationGroupMappingMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\RegionDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\RevenueCategoryDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\SourceSystemDimMapping.cs" />
+    <Compile Include="Database\Mappings\FinanceManagement\SpendCategoryDimMapping.cs" />
+    <Compile Include="Database\Mappings\InterestRates\MarketDataMapping.cs" />
+    <Compile Include="Database\Mappings\InterestRates\MarketDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\InterestRates\MarketDataTypeMapping.cs" />
+    <Compile Include="Database\Mappings\InterestRates\MarketRateEnvironmentMapping.cs" />
+    <Compile Include="Database\Mappings\InterestRates\RateCurveDataMapping.cs" />
+    <Compile Include="Database\Mappings\InterestRates\RateCurveDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\InterestRates\RateIndexGroupMapping.cs" />
+    <Compile Include="Database\Mappings\InterestRates\RateIndexMapping.cs" />
+    <Compile Include="Database\Mappings\PaymentConventionMapping.cs" />
+    <Compile Include="Database\Mappings\Pricing\PricingGroupAssignmentMapping.cs" />
+    <Compile Include="Database\Mappings\Pricing\PricingGroupDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\Pricing\PricingTypeMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\AvailableFundsRetrievalDetailMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\AvailableFundsRetrievalTypeMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\BalanceCapAndFloorDetailMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\BalanceCapAndFloorSetMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\FeeDetailMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\FeeGroupDetailMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\FundsDistributionTypeMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\PriorityOfPaymentsAssignmentMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\PriorityOfPaymentsSetMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\RedemptionLogicAllowedMonthsDetailMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\RedemptionLogicAllowedMonthsSetMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\RedemptionLogicDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\RedemptionLogicTypeMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\RedemptionTranchesDetailMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\RedemptionTranchesSetMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\ReserveAccountsDetailMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\ReserveAccountsSetMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationAnalysisCommentMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationAnalysisDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationAnalysisInputMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationAnalysisMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationAnalysisOwnerMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationAnalysisResultMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationAnalysisSummaryMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationInputTypeMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationNodeDataSetMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationNodeMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\SecuritizationResultTypeMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\TrancheCashFlowTypeMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\TrancheCouponMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\TrancheDetailMapping.cs" />
+    <Compile Include="Database\Mappings\Securitization\TrancheTypeMapping.cs" />
+    <Compile Include="Database\Mappings\VectorMapping.cs" />
+    <Compile Include="Database\Mappings\VectorParentMapping.cs" />
+    <Compile Include="Excel\Entities\CashFlowGenerationInputsRecord.cs" />
+    <Compile Include="Excel\Entities\CollateralTapeRecords\AssessmentLevelPaceTapeRecord.cs" />
+    <Compile Include="Excel\Entities\CollateralTapeRecords\CommercialPaceTapeRecord.cs" />
+    <Compile Include="Excel\Entities\CollateralTapeRecords\MunicipalBondLevelPaceTapeRecord.cs" />
+    <Compile Include="Excel\Entities\CollateralTapeRecords\PaceTapeRecord.cs" />
+    <Compile Include="Excel\Entities\CollateralTapeRecords\ReplineLevelPaceTapeRecord.cs" />
+    <Compile Include="Excel\Entities\FinanceManagementMappingRecord.cs" />
+    <Compile Include="Excel\Entities\MarketDataRecord.cs" />
+    <Compile Include="Excel\Entities\PaydownCalculatorInputRecord.cs" />
+    <Compile Include="Excel\Entities\PerformanceAssumptionMappingRecord.cs" />
+    <Compile Include="Excel\Entities\PerformanceAssumptionRecord.cs" />
+    <Compile Include="Excel\Entities\CollateralTapeRecords\PrepaymentPenaltyRecord.cs" />
+    <Compile Include="Excel\Entities\CollateralTapeRecords\RatePlanMappingRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\CollateralizedSecuritizationRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\DbrsStressModelInputsRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\FeeDetailRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\FeeGroupRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\PerformanceAssumptionScenarioRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\PriorityOfPaymentsRecord.cs" />
+    <Compile Include="Excel\Entities\CashFlowPricingInputsRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\ReserveAccountRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\SecuritizationInputsRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\SecuritizationPricingScenarioRecord.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\TrancheStructureRecord.cs" />
+    <Compile Include="Excel\Entities\TabDataTypeRecord.cs" />
+    <Compile Include="Excel\Entities\TestRecords\TestRecord1.cs" />
+    <Compile Include="Excel\Entities\TestRecords\TestRecord2.cs" />
+    <Compile Include="Excel\Entities\SecuritizationRecords\WarehouseMarkToMarketInputsRecord.cs" />
+    <Compile Include="Excel\ExcelFileReader.cs" />
+    <Compile Include="Excel\ExcelFileWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Database\DatabaseConnection.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>DatabaseConnection.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Database\SQL\FinanceManagementContext\Deploy.bat" />
+    <None Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\Excel-Securitizations-To-Save.bat" />
+    <None Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\Deploy.bat" />
+    <None Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\Deploy.bat" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dream.Common\Dream.Common.csproj">
+      <Project>{33b18390-0be1-4d3c-8c1f-3fa20b84d26c}</Project>
+      <Name>Dream.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\SQL\FinanceManagementContext\0_Rollback\InitialRelease.Rollback.1.StoredProcedures.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\0_Rollback\InitialRelease.Rollback.2.Constraints.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\0_Rollback\InitialRelease.Rollback.3.Tables.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\2_Tables\LedgerAccountTypeDim.Table.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\2_Tables\RegionAggregationGroup.Table.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\2_Tables\ProductLineAggregationGroup.Table.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\2_Tables\LedgerAccountAggregationGroup.Table.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\2_Tables\CostCenterAggregationGroup.Table.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\2_Tables\RegionAggregationGroupMapping.Table.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\2_Tables\ProductLineAggregationGroupMapping.Table.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\2_Tables\LedgerAccountAggregationGroupMapping.Table.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\2_Tables\CostCenterAggregationGroupMapping.Table.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\3_Constraints\0_InitialRelease.UniqueConstraints.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\3_Constraints\1_InitialRelease.ForeignKeys.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\RegionAggregationGroupMapping.Insert.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\RegionAggregationGroup.Update.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\RegionAggregationGroup.Insert.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\ProductLineAggregationGroupMapping.Insert.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\ProductLineAggregationGroup.Update.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\ProductLineAggregationGroup.Insert.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\LedgerAccountAggregationGroupMapping.Insert.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\LedgerAccountAggregationGroup.Update.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\LedgerAccountAggregationGroup.Insert.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\CostCenterAggregationGroup.Update.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\CostCenterAggregationGroup.Insert.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\4_StoredProcedures\CostCenterAggregationGroupMapping.Insert.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\5_DataUpdates\1.LedgerAccountTypeDim.Data.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\5_DataUpdates\1.LedgerAccountDim.Data.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\5_DataUpdates\0.RegionDim.Data.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\5_DataUpdates\2.CostCenterAggregationGroupMapping.Data.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\5_DataUpdates\3.2.LedgerAccountAggregationGroupMapping.Data.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\5_DataUpdates\3.1.LedgerAccountAggregationGroupMapping.Data.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\5_DataUpdates\2.ProductLineAggregationGroupMapping.Data.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\5_DataUpdates\2.RegionAggregationGroupMapping.Data.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\6_Permissions\InitialRelease.Permissions.1.Tables.sql" />
+    <Content Include="Database\SQL\FinanceManagementContext\6_Permissions\InitialRelease.Permissions.2.StoredProcedures.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\0_Rollback\InitialRelease.Rollback.4.RolesAndPermissions.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\0_Rollback\InitialRelease.Rollback.1.StoredProcedures.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\0_Rollback\InitialRelease.Rollback.2.Constraints.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\0_Rollback\InitialRelease.Rollback.3.TablesAndSchema.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\1_Schema\Dream.Schema.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\AggregationGroupAssignment.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\AggregationGroupDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\AllowedMonth.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\AvailableFundsRetrievalDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\AvailableFundsRetrievalType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\BalanceCapAndFloorDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\BalanceCapAndFloorSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\CollateralizedSecuritizationDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\CollateralizedSecuritizationTranche.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\CompoundingConvention.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\DayCountConvention.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\FeeDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\FeeGroupDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\FundsDistributionType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\MarketData.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\MarketDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\MarketDataType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\MarketRateEnvironment.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PaceAssessmentRatePlanTermSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PaceAssessmentRatePlan.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PaceAssessmentRecord.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PaceAssessmentRecordDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PaymentConvention.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PerformanceAssumptionAssignment.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PerformanceAssumptionDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PerformanceAssumptionType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PrepaymentPenaltyPlan.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PrepaymentPenaltyPlanDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PricingGroupAssignment.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PricingGroupDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PricingType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PriorityOfPaymentsAssignment.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\PriorityOfPaymentsSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RateCurveData.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RateCurveDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RateIndexGroup.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RateIndex.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RedemptionLogicAllowedMonthsDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RedemptionLogicAllowedMonthsSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RedemptionLogicDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RedemptionLogicType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RedemptionTranchesDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\RedemptionTranchesSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\ReserveAccountsDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\ReserveAccountsSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationAnalysis.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\ApplicationUser.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationAnalysisSummary.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationResultType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationAnalysisResult.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationAnalysisOwner.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationAnalysisComment.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationAnalysisDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationAnalysisInput.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationInputType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationNode.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\SecuritizationNodeDataSet.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\TrancheCashFlowType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\TrancheCoupon.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\TrancheDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\TrancheType.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\Vector.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\2_Tables\VectorParent.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\3_Constraints\0_InitialRelease.UniqueConstraints.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\3_Constraints\1_InitialRelease.ForeignKeys.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\AggregationGroupAssignment.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\AggregationGroupDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\AllowedMonth.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\AvailableFundsRetrievalDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\AvailableFundsRetrievalType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\BalanceCapAndFloorDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\BalanceCapAndFloorSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\CollateralizedSecuritizationDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\CollateralizedSecuritizationTranche.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\CompoundingConvention.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\DayCountConvention.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\FeeDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\FeeGroupDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\FundsDistributionType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\MarketData.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\MarketDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\MarketDataType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\MarketRateEnvironment.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PaceAssessmentRatePlanTermSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PaceAssessmentRatePlan.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PaceAssessmentRecord.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PaceAssessmentRecordDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PaymentConvention.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PerformanceAssumptionAssignment.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PerformanceAssumptionDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PerformanceAssumptionType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PrepaymentPenaltyPlan.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PrepaymentPenaltyPlanDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PricingGroupAssignment.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PricingGroupDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PricingType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PriorityOfPaymentsAssignment.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\PriorityOfPaymentsSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RateCurveData.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RateCurveDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RateIndexGroup.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RateIndex.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RedemptionLogicAllowedMonthsDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RedemptionLogicAllowedMonthsSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RedemptionLogicDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RedemptionLogicType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RedemptionTranchesDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\RedemptionTranchesSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\ReserveAccountsDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\ReserveAccountsSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\ApplicationUser.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\ApplicationUser.Update.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationAnalysisSummary.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationAnalysisResult.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationAnalysisOwner.Update.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationAnalysisOwner.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationAnalysisComment.Update.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationAnalysisComment.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationAnalysis.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationAnalysisDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationAnalysisInput.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationResultType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationInputType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationNode.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\SecuritizationNodeDataSet.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\TrancheCashFlowType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\TrancheCoupon.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\TrancheDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\TrancheType.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\Vector.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\4_StoredProcedures\VectorParent.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.ApplicationUser.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.AllowedMonth.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.AvailableFundsRetrievalType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.CompoundingConvention.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.DayCountConvention.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.FundsDistributionType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.MarketDataType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.PaceAssessmentRecord.Data.2.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.PaymentConvention.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.PerformanceAssumptionType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.PricingType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.RateIndex.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.RedemptionLogicType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.TrancheType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.SecuritizationResultType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\1.PerformanceAssumption.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\2.ResecuritizationAnalysis.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\1.SecuritizationAnalysis.Data.2.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\1.SecuritizationAnalysis.Data.1.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.SecuritizationInputType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.TrancheCashFlowType.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\5_DataUpdates\0.PaceAssessmentRecord.Data.1.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\6_Permissions\InitialRelease.Permissions.1.Roles.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\6_Permissions\InitialRelease.Permissions.2.Tables.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\0_InitialRelease\6_Permissions\InitialRelease.Permissions.3.StoredProcedures.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\0_Rollback\SubsequentRelease.Rollback.0.StoredProcedures.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\0_Rollback\SubsequentRelease.Rollback.3.Data.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\0_Rollback\SubsequentRelease.Rollback.2.Tables.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\0_Rollback\SubsequentRelease.Rollback.1.Constraints.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\1_Tables\SecuritizationAnalysisInput.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\1_Tables\PaceAssessmentRecord.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\1_Tables\ReserveAccountsDetail.Table.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\2_Constraints\SubsequentRelease.ForeignKeys.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\3_StoredProcedures\PaceAssessmentRecord.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\3_StoredProcedures\ReserveAccountsDetail.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\3_StoredProcedures\SecuritizationAnalysisInput.Insert.sql" />
+    <Content Include="Database\SQL\SecuritizationEngineContext\1_SubsequentRelease\4_DataUpdates\0.ReserveAccountsDetail.Data.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

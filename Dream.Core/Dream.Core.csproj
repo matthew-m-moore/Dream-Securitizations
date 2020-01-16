@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D052C9C7-D3E4-4754-9661-AF51853DF371}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dream.Core</RootNamespace>
+    <AssemblyName>Dream.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.88.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.88.0\lib\net452\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember.Signed, Version=1.0.0.9, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.Signed.1.1.0\lib\net40\FastMember.Signed.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogic\Aggregation\AggregationGroupings.cs" />
+    <Compile Include="BusinessLogic\Aggregation\CashFlowAggregator.cs" />
+    <Compile Include="BusinessLogic\Bonding\BondCouponOptimizer.cs" />
+    <Compile Include="BusinessLogic\Bonding\MultipleFixedRateLoanBondCouponOptimizer.cs" />
+    <Compile Include="BusinessLogic\Bonding\SingleFixedRateLoanBondCouponOptimizer.cs" />
+    <Compile Include="BusinessLogic\Bonding\PresentValueTargetSingleFixedRateLoanBondCouponOptimizer.cs" />
+    <Compile Include="BusinessLogic\Containers\AmountPayable.cs" />
+    <Compile Include="BusinessLogic\Containers\CashFlows\AvailableFundsCashFlow.cs" />
+    <Compile Include="BusinessLogic\Containers\CashFlows\CashFlow.cs" />
+    <Compile Include="BusinessLogic\Containers\CompoundKeys\ShortfallReservesAllocationEntry.cs" />
+    <Compile Include="BusinessLogic\Containers\CustomPayment.cs" />
+    <Compile Include="BusinessLogic\Containers\CompoundKeys\SecuritizationAnalysisIdentifier.cs" />
+    <Compile Include="BusinessLogic\Containers\DbrsStressModelInput.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\AssumptionsApplication\DbrsStressModelStandards.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\CashFlowGeneration\CashFlowGenerator.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\DbrsStressModelProjectedCashFlowLogic.cs" />
+    <Compile Include="BusinessLogic\Replines\ReplineGeneratorRetriever.cs" />
+    <Compile Include="BusinessLogic\Scenarios\AggregationGroupingsScenario.cs" />
+    <Compile Include="BusinessLogic\Scenarios\CollateralRetrieverScenario.cs" />
+    <Compile Include="BusinessLogic\Scenarios\CollateralScenario.cs" />
+    <Compile Include="BusinessLogic\Scenarios\MarketRateEnvironmentScenario.cs" />
+    <Compile Include="BusinessLogic\Scenarios\ProjectedCashFlowLogicScenario.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\AvailableFundsLogic\IrregularInterestRemittanceAvailableFundsRetriever.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Resecuritization.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\Fees\PercentOfTrancheBalanceFeeTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\ShortfallReservesAllocator.cs" />
+    <Compile Include="BusinessLogic\Valuation\CashFlowGenerationInput.cs" />
+    <Compile Include="BusinessLogic\Containers\CashFlows\ContractualCashFlow.cs" />
+    <Compile Include="BusinessLogic\Containers\DelayedFee.cs" />
+    <Compile Include="BusinessLogic\Containers\FundsAvailable.cs" />
+    <Compile Include="BusinessLogic\Containers\MarketDataPoint.cs" />
+    <Compile Include="BusinessLogic\Containers\PaceRatePlan.cs" />
+    <Compile Include="BusinessLogic\Containers\PrepaymentPenalty.cs" />
+    <Compile Include="BusinessLogic\Containers\CashFlows\ProjectedCashFlow.cs" />
+    <Compile Include="BusinessLogic\Containers\CompoundKeys\ProRataFundsEntry.cs" />
+    <Compile Include="BusinessLogic\Containers\ReserveFund.cs" />
+    <Compile Include="BusinessLogic\Containers\ScenarioShock.cs" />
+    <Compile Include="BusinessLogic\Containers\CashFlows\SecuritizationCashFlow.cs" />
+    <Compile Include="BusinessLogic\Containers\WarehouseMarkToMarketInput.cs" />
+    <Compile Include="BusinessLogic\InterestRates\RateCurveCalculationLogic.cs" />
+    <Compile Include="BusinessLogic\InterestRates\MarketRateEnvironment.cs" />
+    <Compile Include="BusinessLogic\Coupons\FixedRateCoupon.cs" />
+    <Compile Include="BusinessLogic\Coupons\FloatingRateCoupon.cs" />
+    <Compile Include="BusinessLogic\Coupons\InverseFloatingRateCoupon.cs" />
+    <Compile Include="BusinessLogic\Coupons\Coupon.cs" />
+    <Compile Include="BusinessLogic\LoanStages\LoanStage.cs" />
+    <Compile Include="BusinessLogic\LoanStages\FixedRateAmortizingLoanStage.cs" />
+    <Compile Include="BusinessLogic\LoanStages\FloatingRateAmortizingLoanStage.cs" />
+    <Compile Include="BusinessLogic\LoanStages\InterestOnlyLoanStage.cs" />
+    <Compile Include="BusinessLogic\LoanStages\NoPaymentLoanStage.cs" />
+    <Compile Include="BusinessLogic\LoanStages\NoPaymentPayoffOptionLoanStage.cs" />
+    <Compile Include="BusinessLogic\Paydown\EnsureSpecificPresentValuePaydownCalculator.cs" />
+    <Compile Include="BusinessLogic\Paydown\PaydownCalculator.cs" />
+    <Compile Include="BusinessLogic\Paydown\PaydownScenario.cs" />
+    <Compile Include="BusinessLogic\Paydown\FixedRateLoanPaydownCalculator.cs" />
+    <Compile Include="BusinessLogic\PricingStrategies\DoNothingPricingStrategy.cs" />
+    <Compile Include="BusinessLogic\PricingStrategies\FixedValuePricingStrategy.cs" />
+    <Compile Include="BusinessLogic\PricingStrategies\NominalSpreadBasedPricingStrategy.cs" />
+    <Compile Include="BusinessLogic\PricingStrategies\PercentOfBalancePricingStrategy.cs" />
+    <Compile Include="BusinessLogic\PricingStrategies\PricingStrategy.cs" />
+    <Compile Include="BusinessLogic\PricingStrategies\SpecificMarketValuePricingStrategy.cs" />
+    <Compile Include="BusinessLogic\PricingStrategies\SpreadOverCurveBasedPricingStrategy.cs" />
+    <Compile Include="BusinessLogic\PricingStrategies\YieldBasedPricingStrategy.cs" />
+    <Compile Include="BusinessLogic\ProductTypes\Benji\BenjiLoan.cs" />
+    <Compile Include="BusinessLogic\ProductTypes\FixedFloatingHybridLoan.cs" />
+    <Compile Include="BusinessLogic\ProductTypes\FixedRateLoan.cs" />
+    <Compile Include="BusinessLogic\ProductTypes\FloatingRateLoan.cs" />
+    <Compile Include="BusinessLogic\ProductTypes\Benji\IntroductoryPayoffOptionBenjiLoan.cs" />
+    <Compile Include="BusinessLogic\ProductTypes\Loan.cs" />
+    <Compile Include="BusinessLogic\ProductTypes\Pace\PaceAssessment.cs" />
+    <Compile Include="BusinessLogic\ProductTypes\Product.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\AssumptionsApplication\BondMarketAssociationStandards.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\CashFlowGeneration\ContractualCashFlowGenerator.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\PerformanceAssumptionsMapping.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\PrepaymentPenaltyPlan.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\CashFlowGeneration\ProjectedCashFlowGenerator.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\ProjectedCashFlowLogic.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\ProjectedPerformanceAssumptions.cs" />
+    <Compile Include="BusinessLogic\ProjectedCashFlows\WarehouseMarkToMarketPerformanceAssumptions.cs" />
+    <Compile Include="BusinessLogic\Replines\FixedRateLoanReplineCriteria.cs" />
+    <Compile Include="BusinessLogic\Replines\FixedRateLoanReplineCriteriaFactory.cs" />
+    <Compile Include="BusinessLogic\Replines\FixedRateLoanReplineGenerator.cs" />
+    <Compile Include="BusinessLogic\Replines\PaceAssessmentReplineCriteria.cs" />
+    <Compile Include="BusinessLogic\Replines\PaceAssessmentReplineCriteriaFactory.cs" />
+    <Compile Include="BusinessLogic\Replines\PaceAssessmentReplineGenerator.cs" />
+    <Compile Include="BusinessLogic\Replines\ReplineCriteria.cs" />
+    <Compile Include="BusinessLogic\Replines\ReplineCriteriaFactory.cs" />
+    <Compile Include="BusinessLogic\Replines\ReplineGenerator.cs" />
+    <Compile Include="BusinessLogic\Replines\ReplineLogic.cs" />
+    <Compile Include="BusinessLogic\Scenarios\PricingStrategyShocks\MarketValueShockScenario.cs" />
+    <Compile Include="BusinessLogic\Scenarios\PricingStrategyShocks\NominalSpreadShockScenario.cs" />
+    <Compile Include="BusinessLogic\Scenarios\PerformanceAssumptionShocks\PrepaymentShockScenario.cs" />
+    <Compile Include="BusinessLogic\Scenarios\PricingStrategyShocks\PriceShockScenario.cs" />
+    <Compile Include="BusinessLogic\Valuation\ProjectedCashFlowsAnalysis.cs" />
+    <Compile Include="BusinessLogic\Scenarios\ScenarioAnalysis.cs" />
+    <Compile Include="BusinessLogic\Scenarios\InputsScenario.cs" />
+    <Compile Include="BusinessLogic\Scenarios\PricingStrategyShocks\PricingStrategyShockScenario.cs" />
+    <Compile Include="BusinessLogic\Scenarios\PricingStrategyShocks\YieldShockScenario.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\AvailableFundsLogic\ExternalPayerAvailableFundsRetriever.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Redemption\DoNothingRedemptionLogic.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Redemption\TranchesCanBePaidOutFromAvailableFundsRedemptionLogic.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Redemption\LessThanPercentOfInitalBalanceRedemptionLogic.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Redemption\RedemptionLogic.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Securitization.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\SecuritizationInput.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\AccretionBondTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\Fees\BondCountBasedFeeTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\Fees\FeeTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\Fees\FlatFeeTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\Fees\InitialPeriodSpecialAccrualFeeTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\Fees\PercentOfCollateralBalanceFeeTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\Fees\PeriodicallyIncreasingFeeTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\Fees\SpecialInitialYearAccrualPercentOfCollateralBalanceFeeTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\InterestPaying\InterestPayingTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\InterestPaying\InverseFloatingRateTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\ReserveFunds\PercentOfCollateralBalanceCappedReserveFundTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\ReserveFunds\ReserveFundTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\ReserveFunds\CappedReserveFundTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\CompanionTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\InterestPaying\FixedRateTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\InterestPaying\FloatingRateTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\InterestOnlyTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\PlannedAmortizationClassTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\PrincipalOnlyTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\ResidualTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\TargetedAmortizationClassTranche.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\AvailableFundsLogic\AllFundsAvailableFundsRetriever.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\AvailableFundsLogic\AvailableFundsRetriever.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\AvailableFundsLogic\PrincipalRemittancesAvailableFundsRetriever.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Triggers\TriggerLogic.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Triggers\CumulativeLossesTrigger.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\FundsDistribution\NextFeePaymentProRataDistributionRule.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\FundsDistribution\SubSequentialProRataDistributionRule.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\PriorityOfPayments.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\PriorityOfPaymentsEntry.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\FundsDistribution\CurrentBalanceProRataDistributionRule.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\FundsDistribution\ProRataDistributionRule.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\FundsDistribution\InitialBalanceProRataDistributionRule.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\SecuritizationNodeTree.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\FundsDistribution\SequentialDistributionRule.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\TrancheNodeStruct.cs" />
+    <Compile Include="BusinessLogic\Stratifications\CashFlowMetrics.cs" />
+    <Compile Include="BusinessLogic\Stratifications\LoanPoolMetrics.cs" />
+    <Compile Include="BusinessLogic\Valuation\LoanPool.cs" />
+    <Compile Include="Converters\Database\Collateral\AggregationGroupingsDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Collateral\LoanDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Collateral\PaceAssessmentDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Collateral\PaceRatePlanDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Collateral\PerformanceAssumptionsMappingDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Collateral\PrepaymentPenaltyPlanDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Collateral\ProjectedPerformanceAssumptionsDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Collateral\PropertyStateDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\CompoundingConventionDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\DayCountConventionDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\InterestRateCurveTypeDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\MarketDataGroupingDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\MarketDataTypeDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\MarketRateEnvironmentDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\MonthDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\PaymentConventionDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\PricingStrategyDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\AvailableFundsRetrieverDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\DistributionRuleDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\FeeTrancheDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\InterestPayingTrancheDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\PriorityOfPaymentsDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\RedemptionLogicTypeDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\ReserveFundTrancheDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\ResidualTrancheDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\SecuritizationInputDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\SecuritizationResultDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\TrancheCashFlowTypeDatabaseConverter.cs" />
+    <Compile Include="Converters\Database\Securitization\TrancheTypeDatabaseConverter.cs" />
+    <Compile Include="Converters\Excel\CashFlowGenerationInputExcelConverter.cs" />
+    <Compile Include="Converters\Excel\FinanceManagementMappingRecordExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Scenarios\ShockStrategyExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\AvailableFundsRetrieverExcelConverter.cs" />
+    <Compile Include="Converters\Excel\CompoundingConventionExcelConverter.cs" />
+    <Compile Include="Converters\Excel\DayCountConventionExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\DistributionRuleExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\FeePaymentConventionExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\FeeTrancheExcelConverter.cs" />
+    <Compile Include="Converters\Excel\MarketRateEnvironmentExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Collateral\PaceRatePlanExcelConverter.cs" />
+    <Compile Include="Converters\Excel\PaydownScenarioExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Collateral\PrepaymentPenaltyPlanExcelConverter.cs" />
+    <Compile Include="Converters\Excel\PricingStrategyExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\PriorityOfPaymentsExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\RedemptionLogicExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\ReserveFundTrancheExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Scenarios\ScenarioAnalysisExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\SecuritizationNodeTreeExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\TrancheExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\TrancheCashFlowTypeExcelConverter.cs" />
+    <Compile Include="Interfaces\ICollateralRetriever.cs" />
+    <Compile Include="Interfaces\IReplineGenerator.cs" />
+    <Compile Include="Interfaces\IScenarioLogic.cs" />
+    <Compile Include="Reporting\Excel\CollateralCashFlowsExcelReport.cs" />
+    <Compile Include="Reporting\Excel\CollateralPriceYieldTableExcelReport.cs" />
+    <Compile Include="Reporting\Excel\CollateralSummaryExcelReport.cs" />
+    <Compile Include="Reporting\Excel\ContractualCashFlowsExcelReport.cs" />
+    <Compile Include="Reporting\Excel\SecuritizationCashFlowsExcelReport.cs" />
+    <Compile Include="Reporting\Excel\SecuritizationNodesPriceYieldTablesExcelReport.cs" />
+    <Compile Include="Reporting\Excel\SecuritizationNodesSummaryExcelReport.cs" />
+    <Compile Include="Reporting\Excel\SecuritizationTranchesDecrementTablesExcelReport.cs" />
+    <Compile Include="Reporting\Excel\SecuritizationTranchesPriceYieldTablesExcelReport.cs" />
+    <Compile Include="Reporting\Excel\SecuritizationTranchesSummaryExcelReport.cs" />
+    <Compile Include="Reporting\Excel\WarehouseMarkToMarketExcelReport.cs" />
+    <Compile Include="Reporting\Results\AbbreviatedCashFlowDisplayResult.cs" />
+    <Compile Include="Reporting\Results\BondCouponOptimizationResult.cs" />
+    <Compile Include="Reporting\Results\CashFlowsSummaryResult.cs" />
+    <Compile Include="Reporting\Results\CollateralCashFlowsSummaryResult.cs" />
+    <Compile Include="Reporting\Results\InterestShortfallRecord.cs" />
+    <Compile Include="Reporting\Results\PaymentCorridor.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\Tranches\Tranche.cs" />
+    <Compile Include="Reporting\Results\ProjectedCashFlowsSummaryResult.cs" />
+    <Compile Include="Reporting\Results\SecuritizationResult.cs" />
+    <Compile Include="Reporting\Results\SecuritizationCashFlowsSummaryResult.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\AvailableFundsLogic\AvailableFunds.cs" />
+    <Compile Include="BusinessLogic\SecuritizationEngine\WaterfallLogic\FundsDistribution\DistributionRule.cs" />
+    <Compile Include="Converters\Excel\Collateral\AggregationGroupingsExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Collateral\LoanExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Collateral\PaceAssessmentExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Collateral\PerformanceAssumptionsMappingExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Collateral\ProjectedPerformanceAssumptionsExcelConverter.cs" />
+    <Compile Include="Converters\Excel\Securitization\SecuritizationInputExcelConverter.cs" />
+    <Compile Include="Interfaces\IGeneratesContractualCashFlows.cs" />
+    <Compile Include="Interfaces\IRevolvingCredit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporting\Results\SecuritizationResultsDictionary.cs" />
+    <Compile Include="Repositories\Database\DatabaseRepository.cs" />
+    <Compile Include="Repositories\Database\FinanceManagementDatabaseRepository.cs" />
+    <Compile Include="Repositories\Database\MarketRateEnvironmentDatabaseRepository.cs" />
+    <Compile Include="Repositories\Database\PaceAssessmentDatabaseRepository.cs" />
+    <Compile Include="Repositories\Database\TypesAndConventionsDatabaseRepository.cs" />
+    <Compile Include="Repositories\Database\RedemptionLogicDatabaseRepository.cs" />
+    <Compile Include="Repositories\Database\ResecuritizationDatabaseRepository.cs" />
+    <Compile Include="Repositories\Database\SecuritizationDatabaseRepository.cs" />
+    <Compile Include="Repositories\Database\SecuritizationTrancheDatabaseRepository.cs" />
+    <Compile Include="Repositories\Excel\DbrsStressSecuritizationExcelDataRepository.cs" />
+    <Compile Include="Repositories\Excel\ExcelDataRepository.cs" />
+    <Compile Include="Repositories\Excel\FinanceManagementExcelDataRepository.cs" />
+    <Compile Include="Repositories\Excel\MarketRateEnvironmentExcelDataRepository.cs" />
+    <Compile Include="Repositories\Excel\PaceAssessmentExcelDataRepository.cs" />
+    <Compile Include="Repositories\Excel\LoanPoolExcelDataRepository.cs" />
+    <Compile Include="Repositories\Excel\ResecuritizationExcelDataRepository.cs" />
+    <Compile Include="Repositories\Excel\ScenarioAnalysisExcelDataRepository.cs" />
+    <Compile Include="Repositories\Excel\SecuritizationExcelDataRepository.cs" />
+    <Compile Include="Repositories\Excel\WarehouseMarkToMarketExcelDataRepository.cs" />
+    <Compile Include="Savers\CollateralizedSecuritizationDatabaseSaver.cs" />
+    <Compile Include="Savers\DatabaseSaver.cs" />
+    <Compile Include="Savers\MarketRateEnvironmentDatabaseSaver.cs" />
+    <Compile Include="Savers\PaceAssessmentDatabaseSaver.cs" />
+    <Compile Include="Savers\PerformanceAssumptionsDatabaseSaver.cs" />
+    <Compile Include="Savers\PriorityOfPaymentsDatabaseSaver.cs" />
+    <Compile Include="Savers\RedemptionLogicDatabaseSaver.cs" />
+    <Compile Include="Savers\ResecuritizationDatabaseSaver.cs" />
+    <Compile Include="Savers\SaveManagers\ResecuritizationSaveManager.cs" />
+    <Compile Include="Savers\SaveManagers\SecuritizationSaveManager.cs" />
+    <Compile Include="Savers\SaveManagers\PaceSecurititizationSaveManager.cs" />
+    <Compile Include="Savers\SecuritizationDatabaseSaver.cs" />
+    <Compile Include="Savers\SecuritizationInputDatabaseSaver.cs" />
+    <Compile Include="Savers\SecuritizationResultDatabaseSaver.cs" />
+    <Compile Include="Savers\SecuritizationSummaryDatabaseSaver.cs" />
+    <Compile Include="Savers\SecuritizationTrancheDatabaseSaver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dream.Common\Dream.Common.csproj">
+      <Project>{33b18390-0be1-4d3c-8c1f-3fa20b84d26c}</Project>
+      <Name>Dream.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dream.IO\Dream.IO.csproj">
+      <Project>{4c882125-c15c-4e20-b941-ad8d675d6530}</Project>
+      <Name>Dream.IO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

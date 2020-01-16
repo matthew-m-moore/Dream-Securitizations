@@ -1,0 +1,57 @@
+﻿<Window x:Class="Dream.WinApp.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dream.WinApp"
+        mc:Ignorable="d"
+        Title="Renovate America: Dream.WinApp" Height="350" Width="525" FontFamily="Museo Sans 500"
+        BorderThickness="0">
+    <Grid>
+        <Image x:Name="CompanyImage"
+               HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="488"
+               Source="{Binding CompanyImageBitmapSource}"/>
+        <TextBlock x:Name="InstructionsTextBlock"
+               HorizontalAlignment="Left" Margin="10,200,0,0" TextWrapping="Wrap" FontFamily="Museo Sans 500"
+               Text="Please Select an Input File:" VerticalAlignment="Top"/>
+        <TextBox x:Name="FilePathTextBox" HorizontalAlignment="Left" Height="24" Margin="10,220,0,0" TextWrapping="Wrap" 
+               Text="{Binding InputsFilePath, Mode=TwoWay}" VerticalAlignment="Top" Width="488">
+            <TextBox.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenFileDialogCommand}"></MouseBinding>          
+            </TextBox.InputBindings>
+            <TextBox.Style>
+                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <Style.Resources>
+                        <VisualBrush x:Key="Brush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <Label Content=" (Double-click here to open a file broswer, or paste in a path directly) " Foreground="Gray" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource Brush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource Brush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <TextBlock x:Name="BuildIdTextBlock" HorizontalAlignment="Left" Margin="10,286,0,0" TextWrapping="Wrap" FontFamily="Museo Sans 500" 
+                   Text="{Binding BuildIdentiferText}" VerticalAlignment="Top" Width="244" Height="20"/>
+        <TextBlock x:Name="ScriptChoiceTextBlock" HorizontalAlignment="Left" Margin="270,261,0,0" TextWrapping="Wrap" FontFamily="Museo Sans 500"
+                   Text="Please Select a Script To Run:" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ScriptChoiceComboBox" HorizontalAlignment="Left" Margin="266,280,0,0" VerticalAlignment="Top" Width="232"
+                   ItemsSource="{Binding VisibleScriptsList}"
+                   SelectedItem="{Binding SelectedScriptToRun}"/>
+        <Button x:Name="RunButton" Content="Run" HorizontalAlignment="Left" Height="20" Margin="10,259,0,0" VerticalAlignment="Top" Width="112"
+                   Command="{Binding Run}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="136,263,0,0" TextWrapping="Wrap" FontFamily="Museo Sans 500" FontSize="10" Foreground="DarkGray"
+                   Text="{Binding RunTimerText}" VerticalAlignment="Top" Width="118"/>
+    </Grid>
+</Window>

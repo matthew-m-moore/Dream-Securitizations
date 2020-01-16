@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Dream.IO.Database" GeneratedClassName="DatabaseConnection">
+  <Profiles />
+  <Settings>
+    <Setting Name="SecuritizationEngineServerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AWSSQLBIDEV01</Value>
+    </Setting>
+    <Setting Name="SecuritizationEngineDatabaseName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CapitalMarkets</Value>
+    </Setting>
+    <Setting Name="FinanceManagementServerName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AWSSQLBIDEV01</Value>
+    </Setting>
+    <Setting Name="FinanceManagementDatabaseName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RAHERODW</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

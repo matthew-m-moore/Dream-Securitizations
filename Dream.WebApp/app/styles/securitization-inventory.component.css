@@ -1,0 +1,64 @@
+﻿h2 {
+    font-size: 100%;
+    color: midnightblue;
+}
+
+h3 {
+    font-size: 90%;
+    color: darkblue;
+}
+
+.Inventory li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    height: 1.4em;
+    border-radius: 0.1em;
+}
+
+    .Inventory li.selected:hover {
+        background-color: darkgray !important;
+        color: mediumslateblue;
+    }
+
+    .Inventory li:hover {
+        background-color: lightcyan;
+        left: 0.1em;
+    }
+
+.Inventory .ReadOnlyStatus {
+    display: inline-block;
+    color: darkred;
+    border-radius: 0.1em;
+}
+
+.Inventory .TemplateStatus {
+    display: inline-block;
+    color: dimgray;
+    border-radius: 0.1em;
+    white-space: pre;
+}
+
+.Inventory .DataSetId {
+    display: inline-block;
+    color: dodgerblue;
+    border-radius: 0.1em;
+}
+
+.Inventory .Owner {
+    display: inline-block;
+    color: darkslateblue;
+    border-radius: 0.1em;
+}
+
+.Inventory .CreatedDate {
+    display: inline-block;
+    color: darkmagenta;
+    border-radius: 0.1em;
+}
+
+:host >>> .tooltip-inner {
+    background-color: gray;
+    font-size: 80%;
+    color: white;
+}

@@ -1,0 +1,7 @@
+exec dream.InsertCompoundingConvention  'Simple'
+exec dream.InsertCompoundingConvention  'Annual'
+exec dream.InsertCompoundingConvention  'Semi-Annual'
+exec dream.InsertCompoundingConvention  'Quarterly'
+exec dream.InsertCompoundingConvention  'Monthly'
+exec dream.InsertCompoundingConvention  'Daily'
+exec dream.InsertCompoundingConvention  'Continuous'

@@ -1,0 +1,6 @@
+exec dream.InsertPaymentConvention 'Pro-Rated'
+exec dream.InsertPaymentConvention 'Annual'
+exec dream.InsertPaymentConvention 'Semi-Annual'
+exec dream.InsertPaymentConvention 'Quarterly'
+exec dream.InsertPaymentConvention 'Monthly'
+exec dream.InsertPaymentConvention 'None'
